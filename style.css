@@ -35,7 +35,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #F3E672;
+  color: #00786F;
 }
 
 #theme-toggle {
@@ -157,7 +157,7 @@ p {
 
 a {
   text-decoration: none;
-  color: #F3E672;
+  color: #00786F;
 }
 
 .home-content {
@@ -301,7 +301,7 @@ a {
 
 .scroll-down a:hover {
   transform: scale(1.2);
-  color: #F3E672;
+  color: #00786F;
 }
 
 .sobre-container {
@@ -332,6 +332,7 @@ a {
 .sobre-frase {
   font-size: 1.2em;
   color: #F6851F;
+  margin-bottom: -12px;
 }
 
 .referencia {
@@ -354,6 +355,108 @@ a {
   color: #F6851F;
   margin-right: 10px;
 }
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 60px 30px;
+}
+
+.experience h1 {
+  margin-bottom: 10px;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.totalTabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid #F6851F;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #F6851F;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.tab:hover,
+.tab.active {
+  color: #13131F;
+  background-color: #F6851F;
+  border-left: 2px solid #00786F;
+}
+
+.tab-content {
+  flex: 1;
+  color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: -30px;
+}
+
+.content {
+  display: none;
+  animation: fadeIn 0.4s ease;
+  width: 100%;
+}
+
+.content.active {
+  display: block;
+}
+
+body.light-theme .tabs {
+  border-left-color: #13131F;
+}
+
+body.light-theme .tab {
+  color: #13131F;
+}
+
+body.light-theme .tab:hover,
+body.light-theme .tab.active {
+  color: #f3f3f3;
+  background-color: #13131F;
+  border-left: 2px solid #F6851F;
+}
+
+body.light-theme .tab-content {
+  color: #1a1a1a;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 body.light-theme .sobre-lista i {
   color: #13131F;

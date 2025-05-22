@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://www.gabrielimartins.com" />
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Dev. Gabrieli Martins</title>
+  <title>Portfólio de Gabrieli Martins | Desenvolvedora Full Stack</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -19,8 +19,8 @@
       <a href="#home" aria-label="Ir para a seção Home">Home</a>
       <a href="#habilidades" aria-label="Ir para a seção Habilidades">Habilidades</a>
       <a href="#sobre" aria-label="Ir para a seção Sobre">Sobre</a>
+      <a href="#experience" aria-label="Ir para a seção Contato">Experiência</a>
       <a href="#projeto" aria-label="Ir para a seção Projeto">Projeto</a>
-      <a href="#contato" aria-label="Ir para a seção Contato">Contato</a>
     </nav>
     <button id="theme-toggle" aria-label="Alternar tema">
       <i class="fas fa-moon"></i>
@@ -43,7 +43,7 @@
           <a href="https://github.com/gabrielimartins7" target="_blank" aria-label="Perfil no GitHub">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://wa.me/seunumerowhatsapp" target="_blank" aria-label="Entrar em contato pelo WhatsApp">
+          <a href="https://wa.me/12982861820" target="_blank" aria-label="Entrar em contato pelo WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
         </div>
@@ -121,29 +121,98 @@
     <div class="sobre-texto">
       <h2 class="sobre-frase">A imaginação é mais importante que o conhecimento.</h2>
       <h3 class="referencia">- Albert Einstein</h3>
-      <ul class="sobre-lista">
-        <li><i class="fas fa-laptop-code"></i> Experiência sólida com tecnologias modernas</li>
-        <li><i class="fas fa-users"></i> Comunicação e trabalho em equipe</li>
-      </ul>
+      <div>
+      <p>Oi, sou a <strong>Gabrieli!</strong> Sou técnica em Design Gráfico pelo <strong>Senac</strong> e analista de sistemas pela <strong>FATEC Guaratinguetá</strong>. Com mais de 4 anos de experiência como desenvolvedora full stack, tive a oportunidade de explorar diversas áreas, como front-end (Mobile & Web), UX/UI, IA e back-end.</p>
+      <p>
+        Sou movida por <strong>desafios constantes</strong> e pelo desejo genuíno de contribuir com o
+        <strong>crescimento das pessoas e dos projetos</strong> dos quais faço parte.
+      </p>
+
+      <p>
+        Acredito que a <strong>tecnologia</strong>, quando combinada com <strong>criatividade</strong> e
+        <strong>empatia</strong>, tem um poder transformador — e é exatamente isso que busco trazer em
+        cada trabalho que realizo.
+      </p>
+    </div>
     </div>
   </div>
 </section>
 
+  <section class="experience" id="experience">
+    <h1>Experiência</h1>
+    <div class="totalTabs">
+      <div class="tabs">
+        <button class="tab active" data-tab="housi">Housi</button>
+        <button class="tab" data-tab="dnc">DNC</button>
+        <button class="tab" data-tab="visie">Visie</button>
+        <button class="tab" data-tab="iae">IAE</button>
+      </div>
+
+      <div class="tab-content">
+        <div class="content active" id="housi">
+          <h2>Desenvolvedora Mobile</h2>
+          <p>React Native · TypeScript · Zustand · Scrum · Git</p>
+          <p> Atuei no desenvolvimento de soluções mobile utilizando React Native e TypeScript, com
+              gerenciamento de estado via Zustand e controle de versão com Git. Fui responsável por um
+              projeto solo de totens de autoatendimento, implantado em unidades físicas da Housi, do
+              design à entrega final, demonstrando autonomia e visão de produto.</p>
+        </div>
+
+        <div class="content" id="dnc">
+          <h2>Desenvolvedora Front-end</h2>
+          <p>Vue.js · Nuxt.js · Figma · Jest · Scrum</p>
+          <p> Integrei o time de tecnologia da DNC, contribuindo com o desenvolvimento de plataformas
+              como o LMS e o Jumpy. Utilizei Vue.js, Nuxt.js e Jest para criar interfaces acessíveis e
+              eficientes, com apoio em protótipos elaborados no Figma. Acompanhei todas as etapas de
+              desenvolvimento seguindo a metodologia Scrum. Além disso, ministrei treinamentos sobre
+              acessibilidade e inclusão digital, e tive a oportunidade de liderar a equipe temporariamente
+              na ausência do Tech Lead.</p>
+        </div>
+
+        <div class="content" id="visie">
+          <h2>Desenvolvedora Mobile Jr.</h2>
+          <p>React Native · Cypress · Git · Scrum</p>
+          <p>Participei de projetos mobile para dois clientes: a Igreja Novo Tempo, onde desenvolvemos
+            uma plataforma de cursos e pedidos de oração; e a Vero, provedora de internet em Minas
+            Gerais, onde contribuí no desenvolvimento de funcionalidades como medição de
+            velocidade da internet, visualização e pagamento de faturas e suporte ao cliente.</p>
+        </div>
+
+        <div class="content" id="iae">
+          <h2>Estágio em desenvolvimento</h2>
+          <p>React Native · Realidade Aumentada (RA) · Git</p>
+          <p>Participei da estruturação do projeto pensando em arquitetura de código, onde a intenção do aplicativo era
+            o processamento de visualização de dados em realidade aumentada - RA. Unificando a equipe de lançamento de foguetes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="projeto">
     <h1>Projeto</h1>
     <p>Nosso projeto visa integrar visuais futuristas com interfaces intuitivas. Codificado com foco em acessibilidade e performance.</p>
   </section>
 
-  <section id="contato">
-    <h1>Contato</h1>
-  </section>
 
   <script>
     const toggle = document.getElementById('theme-toggle');
     const body = document.body;
     const skillsContainer = document.querySelector('.skills-container');
     const indicator = document.querySelector('.indicator');
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
 
     skillsContainer.addEventListener('scroll', () => {
       const maxScroll = skillsContainer.scrollWidth - skillsContainer.clientWidth;
