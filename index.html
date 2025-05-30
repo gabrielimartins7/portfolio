@@ -6,6 +6,13 @@
   <meta name="description" content="Gabrieli Martins | Portfólio de Desenvolvedora FullStack, especializada em tecnologias como React, Flutter, Node.js, TypeScript, e mais. Confira meus projetos e habilidades." />
   <meta name="keywords" content="Gabrieli Martins, portfólio, desenvolvedora, FullStack, React, Flutter, Node.js, TypeScript, Git, Figma, Tailwind CSS" />
   <meta name="author" content="Gabrieli Martins" />
+  <meta property="og:title" content="Gabrieli Martins | Portfólio Full Stack" />
+  <meta property="og:description" content="Desenvolvedora FullStack com experiência em React, Flutter, Node.js, e mais. Confira meus projetos e habilidades." />
+  <meta property="og:image" content="https://www.gabrielimartins.com/assets/og-image.png" />
+  <meta property="og:url" content="https://www.gabrielimartins.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Gabrieli Martins" />
   <link rel="canonical" href="https://www.gabrielimartins.com" />
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -22,7 +29,7 @@
       <a href="#experience" aria-label="Ir para a seção Contato">Experiência</a>
       <a href="#projeto" aria-label="Ir para a seção Projeto">Projeto</a>
     </nav>
-    <button id="theme-toggle" aria-label="Alternar tema">
+    <button id="theme-toggle" aria-label="Alternar tema" aria-pressed="false">
       <i class="fas fa-moon"></i>
     </button>
   </header>
@@ -74,6 +81,10 @@
         <p>Flutter</p>
       </div>
       <div class="skill-card">
+        <img src="https://skillicons.dev/icons?i=kotlin" alt="Ícone do Kotlin" />
+        <p>Kotlin</p>
+      </div>
+      <div class="skill-card">
         <img src="https://go-skill-icons.vercel.app/api/icons?i=gemini" alt="Ícone do Flutter" />
         <p>Gemini</p>
       </div>
@@ -92,6 +103,10 @@
       <div class="skill-card">
         <img src="https://skillicons.dev/icons?i=vue" alt="Ícone do Vue JS" />
         <p>Vue JS</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://go-skill-icons.vercel.app/api/icons?i=storybook" alt="Ícone do Storybook" />
+        <p>Storybook</p>
       </div>
       <div class="skill-card">
         <img src="https://skillicons.dev/icons?i=tailwind" alt="Ícone do Tailwind CSS" />
@@ -191,7 +206,35 @@
 
   <section id="projeto">
     <h1>Projeto</h1>
-    <p>Nosso projeto visa integrar visuais futuristas com interfaces intuitivas. Codificado com foco em acessibilidade e performance.</p>
+    <div class="projects-grid">
+    <div class="project-card">
+      <img src="assets/gofinance.png" alt="GoFinance - Aplicativo de controle financeiro" />
+      <div class="project-info">
+        <h2>GoFinance</h2>
+        <p>Aplicativo móvel para controle financeiro com autenticação social.</p>
+        <div class="project-tags">
+          <span>React Native</span>
+          <span>TypeScript</span>
+          <span>Expo</span>
+        </div>
+        <a href="https://github.com/gabrielimartins7/gofinances" target="_blank" class="project-btn">Ver no GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="assets/goodplate.png" alt="GoodPlate IA - Aplicativo de reconhecimento de alimentos" />
+      <div class="project-info">
+        <h2>GoodPlate IA</h2>
+        <p>App de reconhecimento alimentar com sugestão nutricional usando inteligência artificial.</p>
+        <div class="project-tags">
+          <span>React Native</span>
+          <span>TypeScript</span>
+          <span>Clarifai</span>
+        </div>
+        <a href="https://github.com/gabrielimartins7/goodplate-ia" target="_blank" class="project-btn">Ver no GitHub</a>
+      </div>
+    </div>
+  </div>
   </section>
 
 
@@ -203,27 +246,49 @@
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.content');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
+    tabs.forEach((tab, index) => {
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-selected', tab.classList.contains('active') ? 'true' : 'false');
+      tab.setAttribute('tabindex', tab.classList.contains('active') ? '0' : '-1');
+      tab.setAttribute('id', `tab-${tab.dataset.tab}`);
+      document.getElementById(tab.dataset.tab).setAttribute('role', 'tabpanel');
+      document.getElementById(tab.dataset.tab).setAttribute('aria-labelledby', `tab-${tab.dataset.tab}`);
+      document.getElementById(tab.dataset.tab).setAttribute('tabindex', '0');
 
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', (e) => {
+        const prev = tabs[index - 1];
+        const next = tabs[index + 1];
+        if (e.key === 'ArrowLeft' && prev) prev.focus();
+        if (e.key === 'ArrowRight' && next) next.focus();
       });
     });
 
+    function activateTab(tab) {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+        t.setAttribute('tabindex', '-1');
+      });
+      contents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      tab.setAttribute('tabindex', '0');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+      document.getElementById(tab.dataset.tab).focus();
+    }
 
     skillsContainer.addEventListener('scroll', () => {
       const maxScroll = skillsContainer.scrollWidth - skillsContainer.clientWidth;
       const currentScroll = skillsContainer.scrollLeft;
-      
       const scrollPercentage = (currentScroll / maxScroll) * 100;
       indicator.style.width = `${scrollPercentage}%`;
     });
 
     toggle.addEventListener('click', () => {
       body.classList.toggle('light-theme');
+      const isLight = body.classList.contains('light-theme');
+      toggle.setAttribute('aria-pressed', isLight.toString());
       const icon = toggle.querySelector('i');
       icon.classList.toggle('fa-moon');
       icon.classList.toggle('fa-sun');

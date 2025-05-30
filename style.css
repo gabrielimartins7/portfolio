@@ -121,7 +121,7 @@ nav a:hover {
 .scroll-indicator {
   position: sticky;
   bottom: 20px;
-  margin: 0 auto; /* centraliza horizontalmente */
+  margin: 0 auto;
   height: 5px;
   width: 80%;
   max-width: 1000px;
@@ -433,6 +433,81 @@ a {
   display: block;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.project-card {
+  background-color: #1b1b2f;
+  border: 1.5px solid #F6851F;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(246, 133, 31, 0.25);
+  text-align: center;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.project-info h2 {
+  color: #F6851F;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.project-btn {
+  background-color: #F6851F;
+  color: #13131F;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.project-btn:hover {
+  background-color: #d16e1b;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+  justify-content: flex-start
+}
+
+.project-tags span {
+  font-size: 0.75rem;
+  background-color: #333;
+  color: #F6851F;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
 body.light-theme .tabs {
   border-left-color: #13131F;
 }
@@ -636,4 +711,35 @@ body.light-theme .indicator {
     width: 180px;
     height: 180px;
   }
+}
+
+:focus {
+  outline: 3px solid #F6851F;
+  outline-offset: 2px;
+}
+
+.tab[role="tab"]:focus {
+  background-color: #F6851F;
+  color: #13131F;
+}
+
+.tab-content[role="tabpanel"] {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.tab-content[role="tabpanel"].active {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  pointer-events: auto;
+}
+
+body.light-theme .tab[role="tab"]:focus {
+  background-color: #13131F;
+  color: #F6851F;
 }
