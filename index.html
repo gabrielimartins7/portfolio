@@ -14,7 +14,7 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:site_name" content="Gabrieli Martins" />
   <link rel="canonical" href="https://www.gabrielimartins.com" />
-  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="icon" href="assets/crow.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Portfólio de Gabrieli Martins | Desenvolvedora Full Stack</title>
   <link rel="stylesheet" href="style.css"/>
@@ -22,6 +22,9 @@
 <body>
 
   <header>
+    <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+      <i class="fas fa-bars"></i>
+    </div>
     <nav>
       <a href="#home" aria-label="Ir para a seção Home">Home</a>
       <a href="#habilidades" aria-label="Ir para a seção Habilidades">Habilidades</a>
@@ -40,8 +43,9 @@
         <p>Oi, eu sou a</p>
         <h2>Gabrieli</h2>
         <p class="descricao">
-          Sou uma desenvolvedora FullStack apaixonada por tecnologia. Tenho foco em front-end e mobile, mas estou cada vez mais envolvida com back-end.
+          Desenvolvedora FullStack com paixão por criar soluções que unem design, performance e impacto. Do front ao back-end, estou sempre pronta para ir além.
         </p>
+        <a href="#projeto" class="cta-btn">Ver meus projetos</a>
 
         <div class="social-icons">
           <a href="https://www.linkedin.com/in/gabrielimartins7/" target="_blank" aria-label="Perfil no LinkedIn">
@@ -245,6 +249,8 @@
     const indicator = document.querySelector('.indicator');
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.content');
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('nav');
 
     tabs.forEach((tab, index) => {
       tab.setAttribute('role', 'tab');
@@ -292,6 +298,11 @@
       const icon = toggle.querySelector('i');
       icon.classList.toggle('fa-moon');
       icon.classList.toggle('fa-sun');
+    });
+
+    menuToggle?.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      menuToggle.classList.toggle('active');
     });
   </script>
 
